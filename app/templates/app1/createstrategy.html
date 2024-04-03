@@ -1,0 +1,221 @@
+{% extends "app1/bash.html" %}
+{% block content%}
+<html>
+<body>
+    <section>
+        <div class="box_content">
+            <div class="input_box">
+                <div>
+                    <p>Strategy Name</p>
+                    <input type="text" name="Strategy_Name" value="jdji152" class="Strategy_Name">
+                </div>
+                <div>
+                    <p>Strategy Type</p>
+                    <select name="Strategy-type" class="Strategy_Name">
+                        <option value="Custom">Custom</option>
+                        <option value="Long_Straddle">Long Straddle</option>
+                        <option value="">Short Straddle</option>
+                        <option value="Long_Strangle">Long Strangle</option>
+                        <option value="Long_Strangle">Short Strangle</option>
+                        <option value="Short Strangle">Short Strangle</option>
+                        <option value="Long Iron Condor">Long Iron Condor</option>
+                        <option value="Short Iron Condor">Short Iron Condor</option>
+                        <option value="Long Iron Butterfly">Long Iron Butterfly</option>
+                        <option value="Short Iron Butterfly">Short Iron Butterfly</option>
+                        <option value="Long Call Butterfly">Long Call Butterfly</option>
+                        <option value="Short Call Butterfly">Short Call Butterfly</option>
+                        <option value="Long Put Butterfly">Long Put Butterfly</option>
+                        <option value="Short Put Butterfly">Short Put Butterfly</option>
+                        <option value="Bull Call Spread">Bull Call Spread</option>
+                        <option value="Bull Put Spread">Bull Put Spread</option>
+                        <option value="Bear Call Spread">Bear Call Spread</option>
+                        <option value="Bear Put Spread">Bear Put Spread</option>
+                        <option value="Long Call">Long Call</option>
+                        <option value="Short Call">Short Call</option>
+                        <option value="Long Put">Long Put</option>
+                        <option value="Short Put">Short Put</option>
+                    </select>
+                </div>
+                <div>
+                    <p>Exchange</p>
+                    <select name="" id="" class="Exchange">
+                        <option value="NSEFO">NSEFO</option>
+                    </select>
+                </div>
+
+                <div>
+                    <p>Underlying</p>
+                    <select name="" id="" class="Underlying">
+                        <option value="">Cash</option>
+                        <option value="">Future</option>
+                    </select>
+                </div>
+
+                <div>
+                    <p>Lot Multiplier</p>
+                    <input type="number" name="" min="1" value="1" class="Multiplier">
+                </div>
+
+                <div>
+                    <p>Product </p>
+                    <select name="" id="" class="Product">
+                        <option value="Intraday">Intraday</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="input_box2">
+                <div>
+                    <p>Symbol</p>
+                    <input type="text" name="Strategy_Name" value="NIFTY" class="Symbol">
+                </div>
+
+                <div>
+                    <p>Expiry Type</p>
+                    <select name="Strategy-type" class="Expiry_Type">
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Basic</option>
+
+                    </select>
+                </div>
+                <div>
+                    <p>Expiry Offset </p>
+                    <select name="" id="" class="Expiry_Offset">
+                        <option>04APR24</option>
+                        <option>10APR24</option>
+                        <option>18APR24</option>
+                        <option>25APR24</option>
+                        <option>02MAY24</option>
+                    </select>
+                </div>
+
+                <div>
+                    <p>Strike Selection</p>
+                    <select name="" id="" class="Strike_Selection">
+                        <option>Strike - ATM</option>
+                        <option>Strike - Basic</option>
+                        <option>Price</option>
+                        <option>Open Interest</option>
+                    </select>
+                </div>
+
+                <div>
+                    <p>Square off</p>
+                    <select name="" id="" class="Square_off">
+                        <option>Partial</option>
+                        <option>Complete</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <h3>Leg Details </h3>
+                <div class="leg_1">
+
+                    <div>
+                        <p>Buy / Sell </p>
+                        <select name="" id="" class="">
+                            <option>Buy</option>
+                            <option>Sell</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <p>Instrument Type</p>
+                        <select name="" id="" class="">
+                            <option>Put Options</option>
+                            <option>Call Options</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <p>Expiry</p>
+                        <select name="" id="" class="">
+                            <option>Weekly</option>
+                            <option>Monthly</option>
+                            <option>Basic</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <p>Expiry Offset</p>
+                        <select name="" id="" class="Square_off">
+                            <option>Current</option>
+                            <option>Next</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <p>Strike</p>
+                        <select name="" id="" class="Square_off">
+                            <option>19600.00</option>
+                            <option>19650.00</option>
+                            <option>19700.00</option>
+                            <option>19750.00</option>
+                            <option>19800.00</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <p>Lots</p>
+                        <input type="number" name="" min="1" value="1" class="Multiplier">
+                    </div>
+
+                </div>
+                <div class="Toggle">
+                    <h5>Leg Settings</h5>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+<!-- ---------------------------------------------------------------------- -->
+            <div>
+                <h3>Strategy Exit Parameters</h3>
+                <div class="Parameters">
+                    <div>
+                        <p><input type="checkbox">Target Profit </p>
+                        <select name="" id="" class="Target">
+                            <option>Net P/L (₹)</option>
+                            <option>Underlying (₹)</option>
+                            <option>Underlying (pts)</option>
+                            <option>Delta</option>
+                        </select>
+                        <input type="number" name="" min="1" value="1" class="num">
+                    </div>
+
+                    <div>
+                        <p><input type="checkbox">Stop Loss</p>
+                        <select name="" id="" class="Target">
+                            <option>Net P/L (₹)</option>
+                            <option>Underlying (₹)</option>
+                            <option>Underlying (pts)</option>
+                            <option>Delta</option>
+                        </select>
+                        <input type="number" name="" min="1" value="1" class="num">
+                    </div>
+                    <div>
+                        <p><input type="checkbox">Re-Order on Target Profit</p>
+                        <select name="" id="" class="Target">
+                            <option>Re-Execution</option>
+                        </select>
+                        <input type="number" name="" min="1" value="1"  class="num">
+                    </div>
+                    <div>
+                        <p><input type="checkbox">Re-Order on Stop Loss</p>
+                        <select name="" id="" class="Target">
+                            <option>Re-Execution</option>
+                        </select>
+                        <input type="number" name="" min="1" value="1" class="num">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+</body>
+</html>
+{% endblock %}
