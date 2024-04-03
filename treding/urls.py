@@ -19,5 +19,8 @@ from django.urls import path
 import app.views as views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home,name='home')
+    path('',views.home,name='home'),
+    path('createstrategy/',views.createstrategy,name="createstrategy"),
+    path('margincalculator/',views.margincalculator,name="margincalculator"),
+    path('sinein',views.sinein,name='sinein')
 ]

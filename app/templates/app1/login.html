@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 500px; /* Adjust width as needed */
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .tabs {
+            display: flex;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            background-color: #0056b3;
+        }
+
+        .form-container {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+
+        #login-message {
+            color: red;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab" id="login-tab">Login</div>
+            <div class="tab active" id="signup-tab">Sign Up</div>
+        </div>
+        <div class="form-container" id="login-form">
+            <h2>Login Form</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="login_email">Email:</label>
+                    <input type="email" id="login_email" name="login_email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login_password">Password:</label>
+                    <input type="password" id="login_password" name="login_password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="login-btn">Login</button>
+                </div>
+            </form>
+            <div id="login-message">Please sign up first!</div>
+        </div>
+        <div class="form-container" id="signup-form" style="display: none;">
+            <h2>Registration Form</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="fullname">Full Name:</label>
+                    <input type="text" id="fullname" name="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const signupTab = document.getElementById("signup-tab");
+            const loginTab = document.getElementById("login-tab");
+            const signupForm = document.getElementById("signup-form");
+            const loginForm = document.getElementById("login-form");
+            const loginMessage = document.getElementById("login-message");
+
+            loginTab.addEventListener("click", function() {
+                loginTab.classList.add("active");
+                signupTab.classList.remove("active");
+                loginForm.style.display = "block";
+                signupForm.style.display = "none";
+                loginMessage.style.display = "none";
+            });
+
+            signupTab.addEventListener("click", function() {
+                loginTab.classList.remove("active");
+                signupTab.classList.add("active");
+                loginForm.style.display = "none";
+                signupForm.style.display = "block";
+                loginMessage.style.display = "none";
+            });
+
+            document.getElementById("login-btn").addEventListener("click", function(event) {
+                if (signupForm.style.display === "none") {
+                    event.preventDefault();
+                    loginMessage.style.display = "block";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

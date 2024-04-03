@@ -84,7 +84,8 @@ footer {
     
     .navbar .links.show-menu {
         display: none;
-    }
+        
+      }
 
     .navbar .links li {
         margin: 0;
