@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,17 +10,21 @@
             background-color: #f4f4f4;
             display: flex;
             justify-content: center;
-            align-items: center;
+            /* align-items: center; */
             height: 100vh;
             margin: 0;
         }
 
         .container {
-            width: 500px; /* Adjust width as needed */
+            width: 500px;
+            /* Adjust width as needed */
             background: #fff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            height: auto;
+            position: absolute;
+            top: 100px;
         }
 
         .tabs {
@@ -83,15 +88,38 @@
         }
     </style>
 </head>
+
 <body>
+    <div>
+                <h4>{{msg}}</h4>
+            </div>
     <div class="container">
         <div class="tabs">
             <div class="tab" id="login-tab">Login</div>
             <div class="tab active" id="signup-tab">Sign Up</div>
         </div>
         <div class="form-container" id="login-form">
+
+            {% if otp %}
+            <h2>OTP Verification</h2>
+            <form action="{% url 'otp_verify' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="fullname">Enter OTP</label>
+                    <input type="text" id="fullname" name="opt" required>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">verify</button>
+                </div>
+
+            </form>
+
+            {% else %}
             <h2>Login Form</h2>
             <form action="#" method="POST">
+                {% csrf_token %}
+
                 <div class="form-group">
                     <label for="login_email">Email:</label>
                     <input type="email" id="login_email" name="login_email" required>
@@ -106,9 +134,15 @@
             </form>
             <div id="login-message">Please sign up first!</div>
         </div>
+        {% endif %}
+
+
+
         <div class="form-container" id="signup-form" style="display: none;">
             <h2>Registration Form</h2>
-            <form action="#" method="POST">
+            <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+
                 <div class="form-group">
                     <label for="fullname">Full Name:</label>
                     <input type="text" id="fullname" name="fullname" required>
@@ -127,20 +161,25 @@
                 </div>
                 <div class="form-group">
                     <button type="submit">Register</button>
-                </div>
+                </div>    
             </form>
+        
         </div>
     </div>
 
+
+
+
+
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const signupTab = document.getElementById("signup-tab");
             const loginTab = document.getElementById("login-tab");
             const signupForm = document.getElementById("signup-form");
             const loginForm = document.getElementById("login-form");
             const loginMessage = document.getElementById("login-message");
 
-            loginTab.addEventListener("click", function() {
+            loginTab.addEventListener("click", function () {
                 loginTab.classList.add("active");
                 signupTab.classList.remove("active");
                 loginForm.style.display = "block";
@@ -148,7 +187,7 @@
                 loginMessage.style.display = "none";
             });
 
-            signupTab.addEventListener("click", function() {
+            signupTab.addEventListener("click", function () {
                 loginTab.classList.remove("active");
                 signupTab.classList.add("active");
                 loginForm.style.display = "none";
@@ -156,7 +195,7 @@
                 loginMessage.style.display = "none";
             });
 
-            document.getElementById("login-btn").addEventListener("click", function(event) {
+            document.getElementById("login-btn").addEventListener("click", function (event) {
                 if (signupForm.style.display === "none") {
                     event.preventDefault();
                     loginMessage.style.display = "block";
@@ -165,4 +204,5 @@
         });
     </script>
 </body>
+
 </html>

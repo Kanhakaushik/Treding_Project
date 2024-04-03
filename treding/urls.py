@@ -22,5 +22,7 @@ urlpatterns = [
     path('',views.home,name='home'),
     path('createstrategy/',views.createstrategy,name="createstrategy"),
     path('margincalculator/',views.margincalculator,name="margincalculator"),
-    path('sinein',views.sinein,name='sinein')
+    path('sinein',views.sinein,name='sinein'),
+    path('register',views.register,name='register'),
+    path('otp_verify',views.otp_verify,name='otp_verify'),
 ]
